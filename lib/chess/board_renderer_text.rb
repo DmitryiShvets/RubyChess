@@ -7,13 +7,14 @@ class BoardRendererText
 
   def render
     8.times do |r|
-      puts "---------------"
+      puts "-------------------------"
       8.times do |c|
         piece = board[[r, c]]
-        print "#{board[[r, c]]} "
+        print "|#{board[[r, c]]} "
       end
+      print "|"
       puts ""
     end
-    puts "---------------"
+    puts "-------------------------"
   end
 end
