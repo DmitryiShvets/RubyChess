@@ -4,5 +4,10 @@ require_relative "chess/version"
 
 module Chess
   class Error < StandardError; end
-  # Your code goes here...
+
+extend self
+  def hello
+    'Hello'
+  end
+
 end
