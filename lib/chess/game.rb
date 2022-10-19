@@ -35,6 +35,7 @@ class Game
     board.checkmate?(current_player.color)
   end
 
+
   def take_turn
     start_pos = nil
     # Prompt current player to enter a starting pos
@@ -42,6 +43,7 @@ class Game
       puts "Select a piece to move: "
       start_pos = current_player.get_pos
       if board[start_pos].color == current_player.color
+        puts board[start_pos].to_s
         break
       end
       puts "Did not select a #{current_player.color} piece."

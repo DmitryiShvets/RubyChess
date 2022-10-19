@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require_relative "chess/version"
-require_relative 'chess/SASDADAA'
+
 require_relative 'chess/invalid_move_error'
 require_relative 'chess/pieces'
 require_relative 'chess/board_renderer_text'
@@ -15,7 +15,7 @@ module Chess
 
   extend self
 
-  def initialize()
+  def initialize
     @gameMode = 1
   end
 
@@ -33,8 +33,8 @@ module Chess
     b = Board.start_chess
     g = Game.new(
       b,
-      Player.new(:black),
       Player.new(:white),
+      Player.new(:black),
       BoardRendererText
     )
     g.play
@@ -53,6 +53,9 @@ module Chess
 
     return @gameMode
   end
+
+  # Chess.changeGameMode
+  Chess.startLogic
 
 
 end

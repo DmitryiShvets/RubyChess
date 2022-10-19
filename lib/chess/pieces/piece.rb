@@ -29,10 +29,10 @@ class Piece
   end
 
   def current_r
-    location.first
+    location.last
   end
 
   def current_c
-    location.last
+    location.first
   end
 end
