@@ -4,7 +4,7 @@ class Board
   def self.start_chess
     board = self.new
     8.times do |c|
-      board[[c, 1]] = Pawn.new(board, [c, 1], :white) #содание пешек
+      board[[c, 1]] = Pawn.new(board, [c, 1], :white) # содание пешек
       board[[c, 6]] = Pawn.new(board, [c, 6], :black)
     end
 
@@ -35,11 +35,12 @@ class Board
     column, row = location
     grid[column][row]
   end
-
+  
+  # проверка на валидность позиции
   def in_bounds?(location)
     column, row = location
 
-    column  < grid.length && row < grid.first.length && row >= 0 && column >= 0
+    column < grid.length && row < grid.first.length && row >= 0 && column >= 0
   end
 
   def empty?(location)
