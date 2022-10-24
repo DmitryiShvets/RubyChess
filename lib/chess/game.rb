@@ -21,7 +21,6 @@ class Game
       if board.in_check?(current_player.color)
         puts "#{current_player.color} is in check."
       end
-
       take_turn
       swap_player!
     end
