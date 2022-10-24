@@ -4,15 +4,15 @@ class Board
   def self.start_chess
     board = self.new
     8.times do |c|
-      board[[1, c]] = Pawn.new(board, [1, c], :black)
-      board[[6, c]] = Pawn.new(board, [6, c], :white)
+      board[[c, 1]] = Pawn.new(board, [c, 1], :white) # содание пешек
+      board[[c, 6]] = Pawn.new(board, [c, 6], :black)
     end
-   
+
     [Rook, Knight, Bishop, Queen, King, Bishop, Knight, Rook].each_with_index do |piece_klass, column|
-      [[0, :black], [7, :white]].each do |(row, color)|
-        location = [row, column]
+      [[0, :white], [7, :black]].each do |(row, color)|
+        location = [column, row]
         board[location] = piece_klass.new(
-          board, 
+          board,
           location,
           color
         )
@@ -27,32 +27,30 @@ class Board
   end
 
   def []=(location, piece)
-    row, column = location
-    grid[row][column] = piece
+    column, row = location
+    grid[column][row] = piece
+  end
+
+  def [](location)
+    column, row = location
+    grid[column][row]
   end
   
-  def [](location)
-    row, column = location
-    grid[row][column]
-  end
-
+  # проверка на валидность позиции
   def in_bounds?(location)
-    row, column = location
+    column, row = location
 
-    row < grid.length && 
-      column < grid.first.length &&
-      row >= 0 &&
-      column >= 0
+    column < grid.length && row < grid.first.length && row >= 0 && column >= 0
   end
 
   def empty?(location)
-    row, column = location
-    grid[row][column] == NullPiece.instance
+    column, row = location
+    grid[column][row] == NullPiece.instance
   end
 
   def in_check?(color)
-    king = pieces.find {|p| p.color == color && p.is_a?(King)}
-      
+    king = pieces.find { |p| p.color == color && p.is_a?(King) }
+
     if king.nil?
       raise 'No king found.'
     end
@@ -60,25 +58,25 @@ class Board
     king_pos = king.location
 
     # loop over all the pieces of the opposite color
-    pieces.select {|p| p.color != color }.each do |piece|
+    pieces.select { |p| p.color != color }.each do |piece|
       # if any piece has an available move with the position
       # of the king with color, then color is in check.
       if piece.available_moves.include?(king_pos)
         return true
       end
-    end 
+    end
 
     false
   end
 
   def checkmate?(color)
     return false if !in_check?(color)
-    color_pieces = pieces.select {|p| p.color == color }
-    color_pieces.all? {|piece| piece.safe_moves.empty? }
+    color_pieces = pieces.select { |p| p.color == color }
+    color_pieces.all? { |piece| piece.safe_moves.empty? }
   end
 
   def pieces
-    grid.flatten.reject {|piece| piece.is_a?(NullPiece) }
+    grid.flatten.reject { |piece| piece.is_a?(NullPiece) }
   end
 
   def move_piece(start_pos, end_pos)
@@ -108,8 +106,8 @@ class Board
     new_board = Board.new
     pieces.each do |piece|
       new_piece = piece.class.new(
-        new_board, 
-        piece.location, 
+        new_board,
+        piece.location,
         piece.color
       )
       new_board[new_piece.location] = new_piece

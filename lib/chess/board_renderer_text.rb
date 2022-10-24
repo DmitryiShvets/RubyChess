@@ -6,15 +6,24 @@ class BoardRendererText
   end
 
   def render
-    8.times do |r|
+    # 8.times do |row|
+    #   puts "-------------------------"
+    #   8.times do |column|
+    #     piece = board[[column,row]]
+    #     print "|#{board[[column, row]]} "
+    #   end
+    #   print "|"
+    #   puts ""
+    # end
+    (7).downto(0) do |row|
       puts "-------------------------"
-      8.times do |c|
-        piece = board[[r, c]]
-        print "|#{board[[r, c]]} "
+      8.times do |column|
+        piece = board[[column, row]]
+        print "|#{board[[column, row]]} "
       end
       print "|"
       puts ""
     end
-    puts "-------------------------"
+
   end
 end
