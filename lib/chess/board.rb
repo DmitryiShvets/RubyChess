@@ -84,12 +84,12 @@ class Board
   def move_piece(start_pos, end_pos)
     # validate that end pos is in safe moves
     piece = self[start_pos]
-    if !piece.safe_moves.include?(end_pos)
+    unless piece.safe_moves.include?(end_pos)
       raise InvalidMoveError.new(
         "Позиции (#{alphabetOld(end_pos.join('')).join('')}) нет в доступных ходах: #{piece.safe_moves}"
       )
     end
-    if !in_bounds?(end_pos)
+    unless in_bounds?(end_pos)
       raise InvalidMoveError.new('Позиции нет в пределах доски')
     end
     move_piece!(start_pos, end_pos)

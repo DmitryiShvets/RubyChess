@@ -1,0 +1,2 @@
+class InvalidFigureError < ArgumentError
+end
