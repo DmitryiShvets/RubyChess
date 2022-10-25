@@ -1,4 +1,5 @@
 require_relative '../utils'
+
 class Piece
   attr_reader :color, :board
   attr_accessor :location
@@ -18,15 +19,17 @@ class Piece
       new_board = board.dup
       new_board.move_piece!(location, move)
       # if not in check, then the move is safe
-      if !new_board.in_check?(color)
-        moves << move
-      end
+      moves << move unless new_board.in_check?(color)
     end
     moves
   end
 
   def enemy?(location)
     board.in_bounds?(location) && board[location].color != color && board[location].class != NullPiece
+  end
+
+  def allied?(location)
+    board.in_bounds?(location) && board[location].color == color && board[location].class != NullPiece
   end
 
   def current_r

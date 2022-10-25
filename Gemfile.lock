@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    chess (0.1.0)
+    chess (0.2.4)
 
 GEM
   remote: https://rubygems.org/

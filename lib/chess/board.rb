@@ -37,7 +37,7 @@ class Board
     column, row = location
     grid[column][row]
   end
-  
+
   # проверка на валидность позиции
   def in_bounds?(location)
     column, row = location
@@ -107,11 +107,7 @@ class Board
   def dup
     new_board = Board.new
     pieces.each do |piece|
-      new_piece = piece.class.new(
-        new_board,
-        piece.location,
-        piece.color
-      )
+      new_piece = piece.class.new(new_board, piece.location, piece.color)
       new_board[new_piece.location] = new_piece
     end
     new_board
