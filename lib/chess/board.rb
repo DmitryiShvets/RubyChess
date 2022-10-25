@@ -86,7 +86,7 @@ class Board
     piece = self[start_pos]
     if !piece.safe_moves.include?(end_pos)
       raise InvalidMoveError.new(
-        "Позиции (#{alphabetOld(end_pos.join('')).join('')}) нет в доступных ходах: #{piece.safe_moves}"
+        "Позиции (#{alphabetOld(end_pos.join('')).join('')}) нет в доступных ходах: #{(piece.safe_moves).map { |item| toNormalForm(item.join(','))}}"
       )
     end
     if !in_bounds?(end_pos)

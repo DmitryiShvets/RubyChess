@@ -1,8 +1,9 @@
+# const.numeric?()
 def numeric?
   Float(self) != nil rescue false
 end
 
-
+# принимаеи или строку или массив. Возвращает массив строк (a1)
 def alphabet (pos)
 
     case pos[0]
@@ -35,6 +36,8 @@ def alphabet (pos)
 
 end
 
+
+# 0,0 => a1
 def alphabetOld (pos)
 
   case pos[0]
@@ -69,7 +72,7 @@ end
 
 
 
-
+# 0,0 A1 1A a1 1a =>  a1
 def toNormalForm (pos)
   arr_pos = pos.split('').map(&:downcase)
   if (arr_pos.length <= 2)
