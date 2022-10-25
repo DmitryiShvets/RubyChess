@@ -22,8 +22,6 @@ class Player
       #   puts str_pos.split('')
       #   arr_pos = str_pos.split(',')
       #   arr_pos.map { |part| part.to_i unless part.empty? }
-      #
-      # else
 
 
 
@@ -31,7 +29,6 @@ class Player
         arr_pos = alphabet(pos.split(''))
         arr_pos.map { |part| part.to_i unless part.empty? }
 
-      # end
     end
   end
 end

@@ -1,3 +1,5 @@
+require_relative 'utils'
+
 class Board
   attr_reader :grid
 
@@ -84,7 +86,7 @@ class Board
     piece = self[start_pos]
     if !piece.safe_moves.include?(end_pos)
       raise InvalidMoveError.new(
-        "End position (#{end_pos}) not in available moves: #{piece.safe_moves}"
+        "End position (#{alphabetOld(end_pos.join('')).join('')}) not in available moves: #{piece.safe_moves}"
       )
     end
     if !in_bounds?(end_pos)

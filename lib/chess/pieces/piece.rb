@@ -1,3 +1,4 @@
+require_relative '../utils'
 class Piece
   attr_reader :color, :board
   attr_accessor :location
@@ -18,7 +19,7 @@ class Piece
       new_board.move_piece!(location, move)
       # if not in check, then the move is safe
       if !new_board.in_check?(color)
-        moves << move
+        moves << alphabetOld(move.join('')).join('')
       end
     end
     moves
