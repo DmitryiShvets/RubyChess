@@ -37,10 +37,11 @@ class Game
     board.checkmate?(current_player.color)
   end
 
-
+  #hod
   def take_turn
     start_pos = nil
     # Prompt current player to enter a starting pos
+    # while true
     loop do
       puts "Выберите фигуру: "
       start_pos = current_player.get_pos

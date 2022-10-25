@@ -24,9 +24,11 @@ class Player
       #   arr_pos.map { |part| part.to_i unless part.empty? }
 
 
-
+        # любую строку к виду a1
         pos = toNormalForm(str_pos)
+        # из a1 => 0,0
         arr_pos = alphabet(pos.split(''))
+        # из массива строк в массив чисел
         arr_pos.map { |part| part.to_i unless part.empty? }
 
     end
