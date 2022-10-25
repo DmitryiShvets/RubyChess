@@ -15,6 +15,9 @@ class Game
   end
 
   def play
+
+
+
     while !over?
       renderer.render
       puts "It's #{current_player.color}'s turn"
