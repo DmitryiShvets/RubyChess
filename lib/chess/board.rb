@@ -37,7 +37,7 @@ class Board
     column, row = location
     grid[column][row]
   end
-  
+
   # проверка на валидность позиции
   def in_bounds?(location)
     column, row = location
@@ -84,12 +84,12 @@ class Board
   def move_piece(start_pos, end_pos)
     # validate that end pos is in safe moves
     piece = self[start_pos]
-    if !piece.safe_moves.include?(end_pos)
+    unless piece.safe_moves.include?(end_pos)
       raise InvalidMoveError.new(
         "Позиции (#{alphabetOld(end_pos.join('')).join('')}) нет в доступных ходах: #{(piece.safe_moves).map { |item| toNormalForm(item.join(','))}}"
       )
     end
-    if !in_bounds?(end_pos)
+    unless in_bounds?(end_pos)
       raise InvalidMoveError.new('Позиции нет в пределах доски')
     end
     move_piece!(start_pos, end_pos)
@@ -107,11 +107,7 @@ class Board
   def dup
     new_board = Board.new
     pieces.each do |piece|
-      new_piece = piece.class.new(
-        new_board,
-        piece.location,
-        piece.color
-      )
+      new_piece = piece.class.new(new_board, piece.location, piece.color)
       new_board[new_piece.location] = new_piece
     end
     new_board

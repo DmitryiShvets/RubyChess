@@ -3,6 +3,7 @@
 require_relative "chess/version"
 
 require_relative 'chess/invalid_move_error'
+require_relative 'chess/invalid_figure_error'
 require_relative 'chess/pieces'
 require_relative 'chess/board_renderer_text'
 require_relative 'chess/board'
@@ -10,8 +11,7 @@ require_relative 'chess/player'
 require_relative 'chess/game'
 
 module Chess
-  class Error < StandardError;
-  end
+  class Error < StandardError; end
 
   extend self
 
@@ -31,16 +31,9 @@ module Chess
 
   def startLogic
     b = Board.start_chess
-    g = Game.new(
-      b,
-      Player.new(:white),
-      Player.new(:black),
-      BoardRendererText
-    )
+    g = Game.new(b, Player.new(:white), Player.new(:black), BoardRendererText)
     g.play
   end
-
-
 
   def changeGameMode
     if (@gameMode == 0)
@@ -56,6 +49,5 @@ module Chess
 
   # Chess.changeGameMode
   Chess.startLogic
-
 
 end
