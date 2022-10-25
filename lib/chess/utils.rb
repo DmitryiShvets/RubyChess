@@ -84,7 +84,7 @@ def toNormalForm (pos)
     end
 
   elsif (arr_pos.join('') =~ (/^\d+[,]{1}\d+$/))
-    return alphabetOld(arr_pos.join('').split(','))
+    return alphabetOld(arr_pos.join('').split(',')).join('')
   else
     return [-1,-1]
   end
@@ -93,4 +93,4 @@ end
 
 puts toNormalForm('1a')
 puts toNormalForm('a1')
-puts toNormalForm('1,1')
+puts toNormalForm('0,1')

@@ -27,8 +27,8 @@ class Player
 
 
 
-        pos = str_pos.split('')
-        arr_pos = alphabet(pos)
+        pos = toNormalForm(str_pos)
+        arr_pos = alphabet(pos.split(''))
         arr_pos.map { |part| part.to_i unless part.empty? }
 
       # end
