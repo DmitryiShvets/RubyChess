@@ -1,3 +1,5 @@
+require_relative 'utils'
+
 class Board
   attr_reader :grid
 
@@ -52,7 +54,7 @@ class Board
     king = pieces.find { |p| p.color == color && p.is_a?(King) }
 
     if king.nil?
-      raise 'No king found.'
+      raise 'Король не найден'
     end
 
     king_pos = king.location
@@ -84,11 +86,11 @@ class Board
     piece = self[start_pos]
     if !piece.safe_moves.include?(end_pos)
       raise InvalidMoveError.new(
-        "End position (#{end_pos}) not in available moves: #{piece.safe_moves}"
+        "Позиции (#{alphabetOld(end_pos.join('')).join('')}) нет в доступных ходах: #{piece.safe_moves}"
       )
     end
     if !in_bounds?(end_pos)
-      raise InvalidMoveError.new('End position not in bounds')
+      raise InvalidMoveError.new('Позиции нет в пределах доски')
     end
     move_piece!(start_pos, end_pos)
   end

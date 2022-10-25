@@ -1,3 +1,4 @@
+require_relative '../utils'
 class Piece
   attr_reader :color, :board
   attr_accessor :location
