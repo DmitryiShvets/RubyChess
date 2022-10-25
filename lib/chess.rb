@@ -22,7 +22,7 @@ module Chess
   def start
     if (@gameMode == 1)
       startLogic()
-      return 'Game is starting'
+      return 'Игра начинается'
     else
       puts 'Для запуска установите интерактивный режим'
     end

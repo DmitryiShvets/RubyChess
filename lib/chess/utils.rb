@@ -90,7 +90,3 @@ def toNormalForm (pos)
   end
 
 end
-
-puts toNormalForm('1a')
-puts toNormalForm('a1')
-puts toNormalForm('0,1')

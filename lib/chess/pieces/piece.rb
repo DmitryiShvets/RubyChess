@@ -19,7 +19,7 @@ class Piece
       new_board.move_piece!(location, move)
       # if not in check, then the move is safe
       if !new_board.in_check?(color)
-        moves << alphabetOld(move.join('')).join('')
+        moves << move
       end
     end
     moves
