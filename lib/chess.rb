@@ -20,12 +20,27 @@ module Chess
   end
 
   def start
-    if (@gameMode == 1)
-      startLogic()
-      return 'Игра начинается'
-    else
-      puts 'Для запуска установите интерактивный режим'
+    loop do
+      puts 'Список команд:'
+      puts 'new - начать новую игру'
+      puts 'exit - выход'
+      puts
+      puts 'Введите команду'
+      command = gets.chomp
+      case command
+      when 'exit'
+        puts 'Выход'
+        break
+      when 'new'
+        startLogic
+      end
     end
+    # if (@gameMode == 1)
+    #   startLogic()
+    #   return 'Игра начинается'
+    # else
+    #   puts 'Для запуска установите интерактивный режим'
+    # end
 
   end
 
@@ -48,6 +63,6 @@ module Chess
   end
 
   # Chess.changeGameMode
-  Chess.startLogic
+  Chess.start
 
 end
