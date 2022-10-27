@@ -1,20 +1,22 @@
 # Chess
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/chess`. To experiment with that code, run `bin/console` for an interactive prompt.
+RubyChess - это гем для игры в шахматы, написанный на чистом ruby. Игра расчитана на 2-х игроков, которые по очереди делают свои ходы.
 
-TODO: Delete this and the text above, and describe your gem
+## Установка
 
-## Installation
+Установите гем и добавьте его в Gemfile приложения, выполнив:
 
-Install the gem and add to the application's Gemfile by executing:
+    ```sh
+    bundle add chess
+    ```
+    
+>Если bundler не используется для управления зависимостями, установите гем, выполнив:
 
-    $ bundle add chess
+    ```sh
+    gem install chess
+    ```
 
-If bundler is not being used to manage dependencies, install the gem by executing:
-
-    $ gem install chess
-
-## Usage
+## Как играть?
 
 TODO: Write usage instructions here
 
@@ -24,9 +26,11 @@ After checking out the repo, run `bin/setup` to install dependencies. Then, run 
 
 To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and the created tag, and push the `.gem` file to [rubygems.org](https://rubygems.org).
 
-## Contributing
+## Разработчики
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/chess. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/[USERNAME]/chess/blob/master/CODE_OF_CONDUCT.md).
+![](https://img.shields.io/badge/3.10-%D0%A8%D0%B2%D0%B5%D1%86%20%D0%94%D0%BC%D0%B8%D1%82%D1%80%D0%B8%D0%B9-critical)
+![](https://img.shields.io/badge/3.10-%D0%A8%D0%B0%D1%88%D1%83%D1%80%D0%B8%D0%BD%20%D0%95%D0%B3%D0%BE%D1%80-critical)
+![](https://img.shields.io/badge/3.10-%D0%9C%D0%B0%D1%80%D1%87%D0%B5%D0%BD%D0%BA%D0%BE%20%D0%9A%D0%BE%D0%BD%D1%81%D1%82%D0%B0%D0%BD%D1%82%D0%B8%D0%BD-critical)
 
 ## License
 
