@@ -12,9 +12,9 @@ bundle add chess
     
 >Если bundler не используется для управления зависимостями, установите гем, выполнив:
 
-    ```sh
-    gem install chess
-    ```
+```sh
+gem install chess
+```
 
 ## Как играть?
 
