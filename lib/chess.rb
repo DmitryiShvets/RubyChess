@@ -15,18 +15,32 @@ module Chess
 
   extend self
 
-  def initialize
-    @gameMode = 1
+  def chooseCommand
+    loop do
+      puts "\n\n\n\n\nСписок команд:"
+      puts 'new - начать новую игру'
+      puts 'exit - выход в меню'
+      puts 'surrender - сдаться'
+      puts 'stop - остановка программы'
+      puts
+      puts 'Введите команду'
+      command = gets.chomp
+      case command
+      when 'exit'
+        puts 'Выход'
+        break
+      when 'surrender'
+        puts 'Вы ещё не начали игру'
+      when 'stop'
+        abort('Вы вышли из игры')
+      when 'new'
+        startLogic
+      end
+    end
   end
 
   def start
-    if (@gameMode == 1)
-      startLogic()
-      return 'Игра начинается'
-    else
-      puts 'Для запуска установите интерактивный режим'
-    end
-
+    chooseCommand
   end
 
   def startLogic
@@ -35,19 +49,6 @@ module Chess
     g.play
   end
 
-  def changeGameMode
-    if (@gameMode == 0)
-      @gameMode = 1
-      puts 'Игровой режим изменён на интерактивный'
-    else
-      @gameMode = 0
-      puts 'Игровой режим изменён на внутренний'
-    end
-
-    return @gameMode
-  end
-
-  # Chess.changeGameMode
-  Chess.startLogic
+  Chess.start
 
 end

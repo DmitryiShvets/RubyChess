@@ -74,15 +74,31 @@ end
 
 # 0,0 A1 1A a1 1a =>  a1
 def toNormalForm (pos)
+  if (pos == [-1, -1])
+    return [-1, -1]
+  end
   arr_pos = pos.split('').map(&:downcase)
   if (arr_pos.length <= 2)
 
 
-    if ((arr_pos[0] =~ (/^[a-z]/)) && (arr_pos[1] =~ (/^\d+$/)))
+    if ((arr_pos[0] =~ (/^[a-h]{1}/)) && (arr_pos[1] =~ (/^[1-8]{1}$/)))
       return arr_pos.join()
-    elsif ((arr_pos[0] =~ (/^\d+$/)) && (arr_pos[1] =~ (/^[a-z]/)))
+    elsif ((arr_pos[0] =~ (/^[1-8]{1}$/)) && (arr_pos[1] =~ (/^[a-h]{1}/)))
       return arr_pos.reverse.join()
+    elsif ((arr_pos[0] =~ (/^[а]{1}/)) && (arr_pos[1] =~ (/^[1-8]{1}$/)))
+      return "a"+arr_pos[1]
+    elsif ((arr_pos[0] =~ (/^[1-8]{1}$/)) && (arr_pos[1] =~ (/^[а]{1}/)))
+      return "a"+arr_pos[0]
+    elsif ((arr_pos[0] =~ (/^[с]{1}/)) && (arr_pos[1] =~ (/^[1-8]{1}$/)))
+      return "c"+arr_pos[1]
+    elsif ((arr_pos[0] =~ (/^[1-8]{1}$/)) && (arr_pos[1] =~ (/^[с]{1}/)))
+      return "c"+arr_pos[0]
+    elsif ((arr_pos[0] =~ (/^[е]{1}/)) && (arr_pos[1] =~ (/^[1-8]{1}$/)))
+      return "e"+arr_pos[1]
+    elsif ((arr_pos[0] =~ (/^[1-8]{1}$/)) && (arr_pos[1] =~ (/^[е]{1}/)))
+      return "e"+arr_pos[0]
     else
+
       return [-1,-1]
     end
 
@@ -92,4 +108,8 @@ def toNormalForm (pos)
     return [-1,-1]
   end
 
+end
+
+def isCorrect?(turn)
+  !(toNormalForm(turn) == [-1,-1])
 end
