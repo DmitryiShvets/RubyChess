@@ -49,6 +49,6 @@ module Chess
     g.play
   end
 
-  Chess.start
+  # Chess.start
 
 end
