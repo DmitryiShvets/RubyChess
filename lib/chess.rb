@@ -15,7 +15,7 @@ module Chess
 
   extend self
 
-  def chooseCommand
+  def _chooseCommand
     loop do
       puts "\n\n\n\n\nСписок команд:"
       puts 'new - начать новую игру'
@@ -34,16 +34,16 @@ module Chess
       when 'stop'
         abort('Вы вышли из игры')
       when 'new'
-        startLogic
+        _startLogic
       end
     end
   end
 
   def start
-    chooseCommand
+    _chooseCommand
   end
 
-  def startLogic
+  def _startLogic
     b = Board.start_chess
     g = Game.new(b, Player.new(:white), Player.new(:black), BoardRendererText)
     g.play

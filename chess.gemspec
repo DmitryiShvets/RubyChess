@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.authors = ["dmirty"]
   spec.email = ["dima.shvets95@inbox.ru"]
 
-  spec.summary = "Chess"
-  spec.description = "RubyChess"
+  spec.summary = "RubyChess"
+  spec.description = "RubyChess - это гем для игры в шахматы, написанный на чистом ruby. Игра расчитана на 2-х игроков, которые по очереди делают свои ходы."
   spec.homepage = "https://github.com/DmitryiShvets/RubyChess"
   spec.license = "MIT"
   spec.required_ruby_version = ">= 2.6.0"
